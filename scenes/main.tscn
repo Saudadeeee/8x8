@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3kg77cqbpcbl"]
+
+[ext_resource type="Script" uid="uid://bjh18fjvru3pj" path="res://scripts/gamealgo/path_spawner.gd" id="2_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://bsjvkmwnsdxrm" path="res://scenes/tile_map.tscn" id="2_sugp2"]
+
+[node name="Main" type="Node2D"]
+
+[node name="TileMap" parent="." instance=ExtResource("2_sugp2")]
+
+[node name="PathSpawner" type="Node2D" parent="."]
+script = ExtResource("2_0wfyh")
+
+[node name="Timer" type="Timer" parent="PathSpawner"]
+autostart = true
+
+[connection signal="timeout" from="PathSpawner/Timer" to="PathSpawner" method="_on_timer_timeout"]
