@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b78oj2umwsse0"
-path="res://.godot/imported/NullTale Chess Update 2.png-2323bf55dbd28fa581b8b181860c2f94.ctex"
+uid="uid://bct7mjsi0rf1g"
+path="res://.godot/imported/WhiteRook.png-faf12e7fb6b7ea0c5605572e0d95d267.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/NullTale Chess Update 2.png"
-dest_files=["res://.godot/imported/NullTale Chess Update 2.png-2323bf55dbd28fa581b8b181860c2f94.ctex"]
+source_file="res://assets/chess/WhiteRook.png"
+dest_files=["res://.godot/imported/WhiteRook.png-faf12e7fb6b7ea0c5605572e0d95d267.ctex"]
 
 [params]
 

@@ -28,9 +28,9 @@ func _unhandled_input(event: InputEvent) -> void:
 	# Zoom bằng con lăn chuột
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_WHEEL_UP and event.pressed:
-			zoom -= Vector2(zoom_step, zoom_step)
-		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN and event.pressed:
 			zoom += Vector2(zoom_step, zoom_step)
+		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN and event.pressed:
+			zoom -= Vector2(zoom_step, zoom_step)
 
 		# Giới hạn zoom
 		zoom.x = clamp(zoom.x, min_zoom, max_zoom)

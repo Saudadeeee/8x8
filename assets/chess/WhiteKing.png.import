@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bct7mjsi0rf1g"
-path="res://.godot/imported/WhiteRook.png-6d6ab40586917050ca4faf64edb9021e.ctex"
+uid="uid://bn7q6g8b1e5v"
+path="res://.godot/imported/WhiteKing.png-bbdfc054f20d9b23237888b5ca0f81ce.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/WhiteRook.png"
-dest_files=["res://.godot/imported/WhiteRook.png-6d6ab40586917050ca4faf64edb9021e.ctex"]
+source_file="res://assets/chess/WhiteKing.png"
+dest_files=["res://.godot/imported/WhiteKing.png-bbdfc054f20d9b23237888b5ca0f81ce.ctex"]
 
 [params]
 

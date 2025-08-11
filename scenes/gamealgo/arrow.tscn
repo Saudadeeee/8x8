@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://in8dnjbndryp"]
+
+[ext_resource type="Script" uid="uid://b0md1qufsucbp" path="res://scripts/gamealgo/arrow.gd" id="1_psni4"]
+[ext_resource type="Texture2D" uid="uid://cg64is36kae0e" path="res://assets/bullet/arrow.png" id="2_inf1c"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qypn7"]
+radius = 5.0
+height = 26.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6wkh3"]
+radius = 6.0
+height = 28.0
+
+[node name="Arrow" type="CharacterBody2D"]
+rotation = 1.5708
+scale = Vector2(0.8, 0.8)
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_psni4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_inf1c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_qypn7")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_6wkh3")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://c0lmr8xdgwdyq"]
+
+[ext_resource type="Script" uid="uid://db22ofqrjlpj8" path="res://scripts/Tower/pawn.gd" id="1_0livs"]
+[ext_resource type="Texture2D" uid="uid://dv23ck0rioewu" path="res://assets/chess/WhitePawn.png" id="2_5xhju"]
+[ext_resource type="PackedScene" uid="uid://in8dnjbndryp" path="res://scenes/gamealgo/arrow.tscn" id="2_jl0sn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jl0sn"]
+radius = 111.005
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7inqg"]
+size = Vector2(28, 28)
+
+[node name="Pawn" type="StaticBody2D"]
+z_index = 1
+script = ExtResource("1_0livs")
+bullet_scene = ExtResource("2_jl0sn")
+
+[node name="Pawnsprite" type="Sprite2D" parent="."]
+position = Vector2(0, -16)
+texture = ExtResource("2_5xhju")
+
+[node name="Aim" type="Marker2D" parent="."]
+
+[node name="Tower" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tower"]
+shape = SubResource("CircleShape2D_jl0sn")
+
+[node name="BulletContainer" type="Node" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7inqg")
+
+[connection signal="body_entered" from="Tower" to="." method="_on_tower_body_entered"]
+[connection signal="body_exited" from="Tower" to="." method="_on_tower_body_exited"]

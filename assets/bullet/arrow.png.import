@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ujbi561gjm6l"
-path="res://.godot/imported/BlackPawn.png-1b29b94e3f146e079edb68945469e848.ctex"
+uid="uid://cg64is36kae0e"
+path="res://.godot/imported/arrow.png-397daba047c6fd29fc88db8f8c3c7a57.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/BlackPawn.png"
-dest_files=["res://.godot/imported/BlackPawn.png-1b29b94e3f146e079edb68945469e848.ctex"]
+source_file="res://assets/bullet/arrow.png"
+dest_files=["res://.godot/imported/arrow.png-397daba047c6fd29fc88db8f8c3c7a57.ctex"]
 
 [params]
 
