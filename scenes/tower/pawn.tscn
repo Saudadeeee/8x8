@@ -18,12 +18,13 @@ corner_radius_bottom_right = 120
 corner_radius_bottom_left = 120
 
 [node name="Pawn" type="StaticBody2D"]
-z_index = 1
+z_index = 2
 script = ExtResource("1_0livs")
 bullet_scene = ExtResource("2_jl0sn")
 
 [node name="Pawnsprite" type="Sprite2D" parent="."]
-scale = Vector2(1, 0.9375)
+position = Vector2(-8, -22.75)
+scale = Vector2(1, 0.947917)
 texture = ExtResource("2_5xhju")
 
 [node name="Aim" type="Marker2D" parent="."]
@@ -33,6 +34,7 @@ visible = false
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tower"]
+visible = false
 shape = SubResource("CircleShape2D_jl0sn")
 
 [node name="BulletContainer" type="Node" parent="."]
@@ -42,10 +44,11 @@ visible = false
 shape = SubResource("RectangleShape2D_7inqg")
 
 [node name="Area" type="Panel" parent="."]
+visible = false
 z_index = -1
-offset_left = -111.0
-offset_top = -111.0
-offset_right = 111.0
+offset_left = -110.0
+offset_top = -110.0
+offset_right = 112.0
 offset_bottom = 111.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_5xhju")
