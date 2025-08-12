@@ -1,11 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://c0lmr8xdgwdyq"]
+[gd_scene load_steps=7 format=3 uid="uid://c6m3boxbqnuhu"]
 
-[ext_resource type="Script" uid="uid://db22ofqrjlpj8" path="res://scripts/Tower/pawn.gd" id="1_0livs"]
-[ext_resource type="Texture2D" uid="uid://dv23ck0rioewu" path="res://assets/chess/WhitePawn.png" id="2_5xhju"]
-[ext_resource type="PackedScene" uid="uid://in8dnjbndryp" path="res://scenes/gamealgo/arrow.tscn" id="2_jl0sn"]
+[ext_resource type="Script" uid="uid://bq8caw2gtw5t1" path="res://scripts/Tower/rook.gd" id="1_ls1ld"]
+[ext_resource type="PackedScene" uid="uid://in8dnjbndryp" path="res://scenes/gamealgo/arrow.tscn" id="2_58j18"]
+[ext_resource type="Texture2D" uid="uid://bct7mjsi0rf1g" path="res://assets/chess/WhiteRook.png" id="2_bcw2c"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_jl0sn"]
-radius = 72.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_ls1ld"]
+radius = 160.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7inqg"]
 size = Vector2(28, 28)
@@ -17,15 +17,15 @@ corner_radius_top_right = 9999
 corner_radius_bottom_right = 9999
 corner_radius_bottom_left = 9999
 
-[node name="Pawn" type="StaticBody2D"]
+[node name="Rook" type="StaticBody2D"]
 z_index = 2
-script = ExtResource("1_0livs")
-bullet_scene = ExtResource("2_jl0sn")
+script = ExtResource("1_ls1ld")
+bullet_scene = ExtResource("2_58j18")
 
-[node name="Pawnsprite" type="Sprite2D" parent="."]
+[node name="RookSprite" type="Sprite2D" parent="."]
 position = Vector2(-8, -22.75)
 scale = Vector2(1, 0.947917)
-texture = ExtResource("2_5xhju")
+texture = ExtResource("2_bcw2c")
 
 [node name="Aim" type="Marker2D" parent="."]
 position = Vector2(-8, -21)
@@ -35,7 +35,7 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tower"]
 position = Vector2(-8, -8)
-shape = SubResource("CircleShape2D_jl0sn")
+shape = SubResource("CircleShape2D_ls1ld")
 
 [node name="BulletContainer" type="Node" parent="."]
 
@@ -44,10 +44,10 @@ shape = SubResource("RectangleShape2D_7inqg")
 
 [node name="Area" type="Panel" parent="."]
 z_index = -1
-offset_left = -81.0
-offset_top = -81.0
-offset_right = 64.0
-offset_bottom = 65.0
+offset_left = -168.0
+offset_top = -168.0
+offset_right = 154.0
+offset_bottom = 152.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_5xhju")
 

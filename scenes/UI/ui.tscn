@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://d2fb1rs14dq1v"]
+[gd_scene load_steps=7 format=3 uid="uid://d2fb1rs14dq1v"]
 
+[ext_resource type="PackedScene" uid="uid://c8t3q5acrx5eh" path="res://scenes/UI/horsepanel.tscn" id="1_m41qk"]
 [ext_resource type="PackedScene" uid="uid://bih525tw2w8wy" path="res://scenes/UI/pawnpanel.tscn" id="1_suays"]
+[ext_resource type="PackedScene" uid="uid://bqqr87scin8c7" path="res://scenes/UI/kingpanel.tscn" id="2_35jxk"]
+[ext_resource type="PackedScene" uid="uid://bpe5wsp512twm" path="res://scenes/UI/knightpanel.tscn" id="3_tpnoy"]
+[ext_resource type="PackedScene" uid="uid://bekkyroi8dro6" path="res://scenes/UI/queenpanel.tscn" id="5_vb61p"]
+[ext_resource type="PackedScene" uid="uid://cnitqumgyqpv4" path="res://scenes/UI/rookpanel.tscn" id="6_owlbh"]
 
 [node name="UI" type="CanvasLayer"]
 
@@ -26,13 +31,25 @@ grow_vertical = 2
 
 [node name="FlowContainer" type="FlowContainer" parent="rootUI/Panel"]
 layout_mode = 0
-offset_left = 14.0
-offset_top = 5.0
-offset_right = 197.0
-offset_bottom = 1068.0
-
-[node name="Pawnpanel2" parent="rootUI/Panel/FlowContainer" instance=ExtResource("1_suays")]
-layout_mode = 2
+offset_left = 16.0
+offset_top = 821.0
+offset_right = 201.0
+offset_bottom = 1083.0
 
 [node name="Pawnpanel" parent="rootUI/Panel/FlowContainer" instance=ExtResource("1_suays")]
+layout_mode = 2
+
+[node name="Horsepanel" parent="rootUI/Panel/FlowContainer" instance=ExtResource("1_m41qk")]
+layout_mode = 2
+
+[node name="Knightpanel" parent="rootUI/Panel/FlowContainer" instance=ExtResource("3_tpnoy")]
+layout_mode = 2
+
+[node name="Rookpanel" parent="rootUI/Panel/FlowContainer" instance=ExtResource("6_owlbh")]
+layout_mode = 2
+
+[node name="Queenpanel" parent="rootUI/Panel/FlowContainer" instance=ExtResource("5_vb61p")]
+layout_mode = 2
+
+[node name="Kingpanel" parent="rootUI/Panel/FlowContainer" instance=ExtResource("2_35jxk")]
 layout_mode = 2

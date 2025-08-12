@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bpe5wsp512twm"]
+
+[ext_resource type="Script" uid="uid://b2ux63x3xg8co" path="res://knightpanel.gd" id="1_vu31b"]
+[ext_resource type="Texture2D" uid="uid://bbaplrlet6381" path="res://assets/chess/WhiteKnight.png" id="2_1806s"]
+[ext_resource type="PackedScene" uid="uid://bxnaycnystaln" path="res://scenes/tower/knight.tscn" id="2_xwe5g"]
+
+[node name="Knightpanel" type="Panel"]
+custom_minimum_size = Vector2(80, 80)
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_vu31b")
+tower_scene = ExtResource("2_xwe5g")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(38, 27)
+scale = Vector2(2, 2)
+texture = ExtResource("2_1806s")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

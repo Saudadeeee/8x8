@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bqqr87scin8c7"]
+
+[ext_resource type="Script" uid="uid://bny3ecswb6tdj" path="res://kingpanel.gd" id="1_qbj0q"]
+[ext_resource type="PackedScene" uid="uid://kx0vbmcqtyiu" path="res://scenes/tower/king.tscn" id="2_2qxyd"]
+[ext_resource type="Texture2D" uid="uid://bn7q6g8b1e5v" path="res://assets/chess/WhiteKing.png" id="2_ep23b"]
+
+[node name="Kingpanel" type="Panel"]
+custom_minimum_size = Vector2(80, 80)
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_qbj0q")
+tower_scene = ExtResource("2_2qxyd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(38, 27)
+scale = Vector2(2, 2)
+texture = ExtResource("2_ep23b")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

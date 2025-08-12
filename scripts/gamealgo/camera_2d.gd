@@ -5,48 +5,46 @@ extends Camera2D
 @export var min_zoom: float = 0.5
 @export var max_zoom: float = 3.0
 
-var dragging: bool = false
-var last_mouse_pos: Vector2
+var dragging := false
+var last_mouse_pos: Vector2 = Vector2.ZERO
 
 func _process(delta: float) -> void:
-	# Di chuyển bằng WASD
-	var input_vector = Vector2.ZERO
+	var v := Vector2(
+		int(Input.is_action_pressed("move_right")) - int(Input.is_action_pressed("move_left")),
+		int(Input.is_action_pressed("move_down")) - int(Input.is_action_pressed("move_up"))
+	)
+	if v != Vector2.ZERO:
+		position += v.normalized() * speed * delta
 
-	if Input.is_action_pressed("move_up"):
-		input_vector.y -= 1
-	if Input.is_action_pressed("move_down"):
-		input_vector.y += 1
-	if Input.is_action_pressed("move_left"):
-		input_vector.x -= 1
-	if Input.is_action_pressed("move_right"):
-		input_vector.x += 1
+func _input(event: InputEvent) -> void:
+	# Zoom
+	if event is InputEventMouseButton and event.pressed:
+		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
+			_set_zoom(zoom.x * (1.0 + zoom_step))
+			get_viewport().set_input_as_handled()
+		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
+			_set_zoom(zoom.x * (1.0 - zoom_step))
+			get_viewport().set_input_as_handled()
 
-	if input_vector != Vector2.ZERO:
-		position += input_vector.normalized() * speed * delta
-
-func _unhandled_input(event: InputEvent) -> void:
-	# Zoom bằng con lăn chuột
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_WHEEL_UP and event.pressed:
-			zoom += Vector2(zoom_step, zoom_step)
-		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN and event.pressed:
-			zoom -= Vector2(zoom_step, zoom_step)
-
-		# Giới hạn zoom
-		zoom.x = clamp(zoom.x, min_zoom, max_zoom)
-		zoom.y = clamp(zoom.y, min_zoom, max_zoom)
-
-		# Kéo bằng chuột giữa
+		# Bắt đầu kéo bằng chuột giữa
 		if event.button_index == MOUSE_BUTTON_MIDDLE:
-			if event.pressed:
-				dragging = true
-				last_mouse_pos = get_viewport().get_mouse_position()
-			else:
-				dragging = false
+			dragging = true
+			last_mouse_pos = get_viewport().get_mouse_position()
+			get_viewport().set_input_as_handled()
 
-	# Kéo camera khi giữ chuột giữa (đã fix tốc độ)
+	# Nhả chuột giữa
+	if event is InputEventMouseButton and (not event.pressed) and event.button_index == MOUSE_BUTTON_MIDDLE:
+		dragging = false
+		get_viewport().set_input_as_handled()
+
+	# Kéo khi giữ chuột giữa
 	if event is InputEventMouseMotion and dragging:
-		var mouse_pos = get_viewport().get_mouse_position()
-		var delta_pos = (last_mouse_pos - mouse_pos) * (1.0 / zoom.x)
+		var mouse_pos: Vector2 = get_viewport().get_mouse_position()
+		var delta_pos: Vector2 = (last_mouse_pos - mouse_pos) / max(0.0001, zoom.x)
 		position += delta_pos
 		last_mouse_pos = mouse_pos
+		get_viewport().set_input_as_handled()
+
+func _set_zoom(z: float) -> void:
+	z = clamp(z, min_zoom, max_zoom)
+	zoom = Vector2(z, z)

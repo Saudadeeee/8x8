@@ -10,6 +10,8 @@ _data = {
 point_count = 9
 
 [node name="Path2D" type="Path2D"]
+z_index = 1000
+z_as_relative = false
 curve = SubResource("Curve2D_0wfyh")
 script = ExtResource("1_kmqlk")
 

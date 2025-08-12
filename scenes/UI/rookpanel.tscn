@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cnitqumgyqpv4"]
+
+[ext_resource type="Script" uid="uid://cbs4310778s7t" path="res://scripts/UI/rookpanel.gd" id="1_hftrr"]
+[ext_resource type="PackedScene" uid="uid://c6m3boxbqnuhu" path="res://scenes/tower/rook.tscn" id="2_5357w"]
+[ext_resource type="Texture2D" uid="uid://bct7mjsi0rf1g" path="res://assets/chess/WhiteRook.png" id="2_ssfc8"]
+
+[node name="Rookpanel" type="Panel"]
+custom_minimum_size = Vector2(80, 80)
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_hftrr")
+tower_scene = ExtResource("2_5357w")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(38, 27)
+scale = Vector2(2, 2)
+texture = ExtResource("2_ssfc8")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

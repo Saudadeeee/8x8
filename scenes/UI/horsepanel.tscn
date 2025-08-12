@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8t3q5acrx5eh"]
+
+[ext_resource type="Script" uid="uid://crafjoc1rk1v" path="res://scripts/UI/horsepanel.gd" id="1_obu4e"]
+[ext_resource type="Texture2D" uid="uid://cn4oqhkhfu6yb" path="res://assets/chess/WhiteHorse.png" id="2_l2v00"]
+[ext_resource type="PackedScene" uid="uid://ck76okub6e7fj" path="res://scenes/tower/horse.tscn" id="2_yb52b"]
+
+[node name="Horsepanel" type="Panel"]
+custom_minimum_size = Vector2(80, 80)
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_obu4e")
+tower_scene = ExtResource("2_yb52b")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(38, 27)
+scale = Vector2(2, 2)
+texture = ExtResource("2_l2v00")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

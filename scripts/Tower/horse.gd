@@ -1,7 +1,7 @@
 extends StaticBody2D
 
 @export var bullet_scene: PackedScene
-@export var bullet_damage := 5
+@export var bullet_damage := 8
 @export var fire_cooldown := 1 
 @onready var detection: Area2D = $"Tower"
 @onready var aim: Node2D = $"Aim"
