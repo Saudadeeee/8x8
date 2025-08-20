@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://dj2lf5fwswc0h"]
+
+[ext_resource type="Script" uid="uid://b4nb08p6iik3i" path="res://scripts/Tower/Tower.gd" id="1_cl7hs"]
+
+[node name="StaticBody2D" type="StaticBody2D"]
+script = ExtResource("1_cl7hs")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="Node" type="Node" parent="."]
