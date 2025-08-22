@@ -1,0 +1,58 @@
+[gd_scene load_steps=2 format=3 uid="uid://baioisbsfgyrj"]
+
+[ext_resource type="Script" uid="uid://j5kno6mxmkq5" path="res://scripts/UI/setting_menu.gd" id="1_4tahm"]
+
+[node name="SettingMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4tahm")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.3, 0.285, 0.285, 0)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 384.0
+offset_bottom = 216.0
+scale = Vector2(5, 5)
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Volume" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "SOUND"
+
+[node name="VolumeSlider" type="HSlider" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+max_value = 300.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Fullscreen" type="Label" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "FULLSCREEN"
+
+[node name="FullscreenButton" type="CheckBox" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "BACK"
+
+[connection signal="value_changed" from="VBoxContainer/HBoxContainer/VolumeSlider" to="." method="_on_volume_slider_value_changed"]
+[connection signal="toggled" from="VBoxContainer/HBoxContainer2/FullscreenButton" to="." method="_on_fullscreen_button_toggled"]
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
